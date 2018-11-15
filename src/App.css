@@ -1,0 +1,149 @@
+.app{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background: #191A20;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.timer{
+  color: white;
+  height: 100vh;
+  width: 100vw;
+  text-align: center;
+  line-height: 100vh;
+  font-size: 80px;
+  font-family: 'Anton';
+  font-weight: bold;
+  letter-spacing: 12px;
+  transition: all .8s;
+}
+
+.timer  h1 {
+  cursor:default;
+}
+.setclock{
+  position: absolute;
+  width: 450px;
+  height: 80px;
+  background: #191A20;
+  bottom: 0;
+  left: 50%;
+  margin-left: -225px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 1.5s;
+  box-shadow: 0px -7px 20px grey;
+}
+
+.show_up{
+  box-shadow: 0px 7px 20px grey;
+  top: 0;
+}
+
+#session::before, #break::before{
+  content: "Session Length";
+  display: block;
+  height: 40px;
+  width: 150px;
+  background:  #ff6666;
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  margin-left: -75px;
+  text-align: center;
+  color: white;
+  line-height: 40px;
+  font-family: 'Roboto';
+  border-radius: 8px;
+}
+
+#break::before{
+  content: "Break Length";
+  top: -20px;
+}
+
+button {
+  background: none;
+  color: white;
+  font-size: 80px;
+  border: none;
+  height: 80px;
+  line-height: 80px;
+  box-sizing: border-box;
+  padding: 0px 20px;
+  border-radius: 20px;
+}
+
+button:focus{
+  outline: none;
+}
+
+button:active{
+  transform: translateY(1px);
+}
+
+#add_btn{
+  border-left: 1px solid white;
+  color: 	#33cc80;
+}
+#add_btn:hover{
+  color: white;
+  background: #33cc80;
+}
+
+#sub_btn{
+  border-right: 1px solid white;
+  color: 	#cc3359;
+}
+
+#sub_btn:hover{
+  color: white;
+  background: #cc3359;
+}
+
+input[type="number"] {
+  -webkit-appearance: none;
+  color: white;
+  background: none;
+  text-align: center;
+  height: 80px;
+  width: 150px;
+  font-size: 40px;
+  font-weight: bold;
+  border: none;
+  margin-top: -20px;
+}
+
+#break input[type="number"]{
+  margin-top: 0px;
+  margin-bottom: -20px;
+}
+input[type="number"]:focus {
+  outline:none;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.large{
+  font-size: 200px;
+}
+
+.hide_up{
+  top: -100px;
+}
+
+.hide_down{
+  bottom: -100px;
+}
