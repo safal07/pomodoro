@@ -147,3 +147,19 @@ input[type=number]::-webkit-outer-spin-button {
 .hide_down{
   bottom: -100px;
 }
+
+@media only screen and (max-width: 700px) {
+  .timer{
+    font-size: 30px;
+    letter-spacing: 2px;
+  }
+
+  .large{
+    font-size: 60px;
+  }
+
+  .setclock{
+    width: 350px;
+    margin-left: -175px;
+  }
+}
