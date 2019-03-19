@@ -12,7 +12,8 @@ class App extends Component {
       sessionValue: 20,
       breakValue: 5,
       currentSeconds: 0,
-      currentMinute: 0
+      currentMinute: 0,
+      onProgress: 'session'
     }
     this.timer = this.timer.bind(this);
     this.startStopTimer = this.startStopTimer.bind(this);
@@ -29,8 +30,16 @@ class App extends Component {
   }
 
   timer(){
-    if(this.state.currentMinute == 0 && this.state.currentSeconds == 0) {
-      this.setState({currentMinute: this.state.breakValue, currentSeconds: 0});
+    if(this.state.currentMinute == 0 && this.state.currentSeconds == 0 && this.state.onProgress != 'break') {
+        this.setState(
+          {currentMinute: this.state.breakValue,
+            currentSeconds: 0,
+            onProgress: 'break'
+          });
+    }
+    else if(this.state.currentMinute == 0 && this.state.currentSeconds == 0 && this.state.onProgress == 'break') {
+      this.startStopTimer();
+
     }
     else if(this.state.currentSeconds === 0){
       this.setState({currentSeconds: 59});
@@ -90,8 +99,9 @@ class App extends Component {
   }
 
   subBreakLength(){
-    this.setState({breakValue: --this.state.breakValue});
-    this.setState({currentSeconds: 0});
+    if(this.state.breakValue != 1) {
+      this.setState({breakValue: --this.state.breakValue});
+    }
   }
 
   startStopTimer(){
@@ -100,14 +110,14 @@ class App extends Component {
       this.myVar = setInterval(this.timer, 1000);
       document.getElementById("session").classList.add("hide_up");
       document.getElementById("break").classList.add("hide_down");
-      document.getElementById("clock").classList.add("large");
+      document.getElementById("clockDigit").classList.add("large");
     }
     else {
       clearInterval(this.myVar);
       this.setState({startTimer: !this.state.startTimer});
       document.getElementById("session").classList.remove("hide_up");
       document.getElementById("break").classList.remove("hide_down");
-      document.getElementById("clock").classList.remove("large");
+      document.getElementById("clockDigit").classList.remove("large");
 
     }
 
@@ -128,6 +138,7 @@ class App extends Component {
           currentMinute = {this.state.currentMinute}
           currentSeconds = {this.state.currentSeconds}
           startStopTimer = {this.startStopTimer}
+          onProgress = {this.state.onProgress}
           />
           <Break
           currentMinute = {this.state.currentMinute}

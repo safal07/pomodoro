@@ -15,18 +15,31 @@
   color: white;
   height: 100vh;
   width: 100vw;
-  text-align: center;
-  line-height: 100vh;
-  font-size: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   font-family: 'Anton';
-  font-weight: bold;
-  letter-spacing: 12px;
-  transition: all .8s;
 }
 
-.timer  h1 {
+h1 {
   cursor:default;
+  text-align: center;
+  line-height: 30vh;
+  font-size: 70px;
+  font-weight: bold;
+  letter-spacing: 12px;
+    transition: all 1s linear;
 }
+
+.timer p {
+  background: red;
+  font-size: 16px;
+  letter-spacing: 2px;
+  padding: 10px;
+}
+
+
 .setclock{
   position: absolute;
   width: 450px;
@@ -136,8 +149,8 @@ input[type=number]::-webkit-outer-spin-button {
   margin: 0;
 }
 
-.large{
-  font-size: 200px;
+#clock .large{
+  font-size: 140px;
 }
 
 .hide_up{
@@ -151,7 +164,7 @@ input[type=number]::-webkit-outer-spin-button {
 @media only screen and (max-width: 700px) {
   .timer{
     font-size: 30px;
-    letter-spacing: 2px;
+    letter-spacing: 20px;
   }
 
   .large{

@@ -2,30 +2,17 @@ import React, { Component } from 'react';
 
 
 class Clock extends Component {
+
+  pad = (num) => {
+      return num < 10 ? '0' + num : '' + num;
+  }
+
   render(){
-    console.log(this.props.currentMinute);
-    var getTime = () => {
-      if(this.props.currentSeconds <= 9 && this.props.currentMinute  <= 9) {
-          return "0" + (this.props.currentMinute) +" : 0" +this.props.currentSeconds;
-      }
-      else if(this.props.currentSeconds <= 9){
-        return (this.props.currentMinute) +" :0" + this.props.currentSeconds;
-      }
-      else if(this.props.currentMinute <= 9){
-        return "0" + (this.props.currentMinute) +" : " + this.props.currentSeconds;
-      }
-      else {
-        return (this.props.currentMinute) +" : " + this.props.currentSeconds;
-      }
-
-    }
-
     return(
-        <div id = "clock" onClick = {this.props.startStopTimer} className = "timer">
-          <h1> {getTime()} </h1>
-        </div>
-
-
+        <div id = "clock" onClick = {this.props.startStopTimer} className = {"timer " + this.props.onProgress}>
+          <h1 id = "clockDigit"> {this.pad(this.props.currentMinute)} : {this.pad(this.props.currentSeconds)} </h1>
+          <p> ON PROGRESS: {this.props.onProgress.toUpperCase()} </p>
+      </div>
     );
   }
 }
