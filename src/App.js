@@ -30,23 +30,26 @@ class App extends Component {
   }
 
   timer(){
-    if(this.state.currentMinute == 0 && this.state.currentSeconds == 0 && this.state.onProgress != 'break') {
+    if(this.state.currentMinute === 0 && this.state.currentSeconds === 0 && this.state.onProgress !== 'break') {
         this.setState(
           {currentMinute: this.state.breakValue,
             currentSeconds: 0,
             onProgress: 'break'
           });
     }
-    else if(this.state.currentMinute == 0 && this.state.currentSeconds == 0 && this.state.onProgress == 'break') {
+    else if(this.state.currentMinute === 0 && this.state.currentSeconds === 0 && this.state.onProgress === 'break') {
       this.startStopTimer();
 
     }
     else if(this.state.currentSeconds === 0){
-      this.setState({currentSeconds: 59});
-      this.setState({currentMinute: --this.state.currentMinute});
+      this.setState(
+        {
+        currentSeconds: 59,
+        currentMinute: this.state.currentMinute - 1
+      });
     }
     else{
-      this.setState({currentSeconds: --this.state.currentSeconds});
+      this.setState({currentSeconds: this.state.currentSeconds - 1});
     }
 
   }
@@ -78,29 +81,29 @@ class App extends Component {
   }
 
   addSessionLength(){
-    if(this.state.sessionValue != 100) {
-        this.setState({sessionValue: ++this.state.sessionValue});
+    if(this.state.sessionValue !== 100) {
+        this.setState({sessionValue: this.state.sessionValue + 1});
         this.setState({currentMinute: this.state.sessionValue});
     }
     this.setState({currentSeconds: 0});
   }
 
   subSessionLength(){
-    if(this.state.sessionValue != 1) {
-      this.setState({sessionValue: --this.state.sessionValue});
+    if(this.state.sessionValue !== 1) {
+      this.setState({sessionValue: this.state.sessionValue - 1});
       this.setState({currentMinute: this.state.sessionValue});
     }
     this.setState({currentSeconds: 0});
   }
 
   addBreakLength(){
-    this.setState({breakValue: ++this.state.breakValue});
+    this.setState({breakValue: this.state.breakValue + 1});
     this.setState({currentSeconds: 0});
   }
 
   subBreakLength(){
-    if(this.state.breakValue != 1) {
-      this.setState({breakValue: --this.state.breakValue});
+    if(this.state.breakValue !== 1) {
+      this.setState({breakValue: this.state.breakValue - 1});
     }
   }
 

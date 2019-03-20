@@ -29,7 +29,7 @@ h1 {
   font-size: 70px;
   font-weight: bold;
   letter-spacing: 12px;
-    transition: all 1s linear;
+  transition: all 1s linear;
 }
 
 .timer p {
@@ -162,13 +162,13 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 @media only screen and (max-width: 700px) {
-  .timer{
-    font-size: 30px;
-    letter-spacing: 20px;
+
+  h1{
+    font-size: 50px;
   }
 
-  .large{
-    font-size: 60px;
+  #clock .large{
+    font-size: 70px;
   }
 
   .setclock{
