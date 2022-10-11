@@ -1,4 +1,4 @@
-## Pomodoro (React)
+## Pomodoro (React App)
 
 A simple pomodoro clock made with react.
 ![Screenshot](https://raw.githubusercontent.com/safal07/pomodoro/master/ss/pomodoro.png)
