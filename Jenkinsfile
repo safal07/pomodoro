@@ -4,6 +4,7 @@ pipeline {
     stage('') {
       steps {
         echo 'Hello guys'
+        sh 'ls -la'
       }
     }
 
